@@ -19,13 +19,62 @@ public class Convertidor {
 		}else {
 			opcionMenu1 = selection.toString();
 		}
-		
-		int opcion=6;
-		int valorAConvertir = 5000;
+		String respuesta;
+		String opcion;
 		String numeroFormateado;
 		switch (opcionMenu1) {
 			case "Conversor de moneda": 
-				System.out.println("si dio");
+				for(;;) {
+					String valor = JOptionPane.showInputDialog(null, "Ingrese la cantidad de dinero que desea convertir", "Entrada", 3);
+					
+					if(valor.matches("-?\\d+(\\.\\d+)?")) {
+						double valorAConvertir = Double.parseDouble(valor);
+						Object seleccionMenu2 = JOptionPane.showInputDialog(null, "Elije la moneda a la que desea hacer la conversion", "Monedas", JOptionPane.PLAIN_MESSAGE, null , objects2, objects2[0]);
+						opcion = seleccionMenu2.toString();
+						switch (opcion) {
+							case "De Pesos a Dolar": 
+								JOptionPane.showMessageDialog(null, valorAConvertir * ((ArrayList<Moneda>) monedas).get(0).getValorConversionLocal() + " Dolares", "respuesta", 1);
+								continuar();
+								break;
+							case "De Pesos a Euro":
+								JOptionPane.showMessageDialog(null, valorAConvertir * ((ArrayList<Moneda>) monedas).get(1).getValorConversionLocal() + " Euros", "respuesta", 1);
+								break;
+							case "De Pesos a Libras":
+								JOptionPane.showMessageDialog(null, valorAConvertir * ((ArrayList<Moneda>) monedas).get(2).getValorConversionLocal() + " Libras esterlinas", "respuesta", 1);
+								break;
+							case "De Pesos a Yen":
+								JOptionPane.showMessageDialog(null, valorAConvertir * ((ArrayList<Moneda>) monedas).get(3).getValorConversionLocal() + " Yenes", "respuesta", 1);
+								break;
+							case "De Pesos a Won Coreanos":
+								JOptionPane.showMessageDialog(null, valorAConvertir * ((ArrayList<Moneda>) monedas).get(4).getValorConversionLocal() + " Won coreanos", "respuesta", 1);
+								break;
+							case "De Dolar a Pesos":
+								JOptionPane.showMessageDialog(null, valorAConvertir * ((ArrayList<Moneda>) monedas).get(0).getValorConversionExterior() + " COP", "respuesta", 1);
+								break;
+							case "De Euro a Pesos":
+								JOptionPane.showMessageDialog(null, valorAConvertir * ((ArrayList<Moneda>) monedas).get(1).getValorConversionExterior() + " COP", "respuesta", 1);
+								break;
+							case "De Libras a Pesos":
+								JOptionPane.showMessageDialog(null, valorAConvertir * ((ArrayList<Moneda>) monedas).get(2).getValorConversionExterior() + " COP", "respuesta", 1);
+								break;
+							case "De Yen a Pesos":
+								JOptionPane.showMessageDialog(null, valorAConvertir * ((ArrayList<Moneda>) monedas).get(3).getValorConversionExterior() + " COP", "respuesta", 1);
+								break;
+							case "De Won coreanos a Pesos":
+								JOptionPane.showMessageDialog(null, valorAConvertir * ((ArrayList<Moneda>) monedas).get(4).getValorConversionExterior() + " COP", "respuesta", 1);
+								break;
+							
+							default:
+								
+						}
+						
+						
+						break;
+					}else {
+						JOptionPane.showMessageDialog(null, "Valor no valido", "Error", 1, null);
+					}
+					
+				}
 				break;
 			case "Conversor de medida":
 				System.out.println("En proceso");
@@ -35,53 +84,12 @@ public class Convertidor {
 				return;
 		}
 		
-		switch (opcion) {
-		case 1: 
-			System.out.println(valorAConvertir * ((ArrayList<Moneda>) monedas).get(0).getValorConversionLocal());
-			break;
-		case 2:
-			System.out.println(valorAConvertir * ((ArrayList<Moneda>) monedas).get(1).getValorConversionLocal());
-			break;
-		case 3:
-			System.out.println(valorAConvertir * ((ArrayList<Moneda>) monedas).get(2).getValorConversionLocal());
-			break;
-		case 4:
-			System.out.println(valorAConvertir * ((ArrayList<Moneda>) monedas).get(3).getValorConversionLocal());
-			break;
-		case 5:
-			System.out.println(valorAConvertir * ((ArrayList<Moneda>) monedas).get(4).getValorConversionLocal());
-			break;
-		case 6:
-			numeroFormateado = String.format("%.2f",(valorAConvertir * ((ArrayList<Moneda>) monedas).get(0).getValorConversionExterior()));
-			System.out.println(numeroFormateado);
-			break;
-		case 7:
-			numeroFormateado = String.format("%.2f",(valorAConvertir * ((ArrayList<Moneda>) monedas).get(1).getValorConversionExterior()));
-			System.out.println(numeroFormateado);
-			break;
-		case 8:
-			numeroFormateado = String.format("%.2f",(valorAConvertir * ((ArrayList<Moneda>) monedas).get(2).getValorConversionExterior()));
-			System.out.println(numeroFormateado);
-			break;
-		case 9:
-			numeroFormateado = String.format("%.2f",(valorAConvertir * ((ArrayList<Moneda>) monedas).get(3).getValorConversionExterior()));
-			System.out.println(numeroFormateado);
-			break;
-		case 10:
-			numeroFormateado = String.format("%.2f",(valorAConvertir * ((ArrayList<Moneda>) monedas).get(4).getValorConversionExterior()));
-			System.out.println(numeroFormateado);
-			break;
-		
-		default:
-			
-		}
 		//JOptionPane.showMessageDialog(null, "XD", "respuesta", 1);
 		//Object selection = JOptionPane.showInputDialog(null, "Elije la moneda a la que desea hacer la conversion", "Monedas", JOptionPane.PLAIN_MESSAGE, null , objects2, objects2[0]);
 		//JOptionPane.showInputDialog(null, "Ingrese la cantidad de dinero que desea convertir", "Entrada", 3);
 		//JOptionPane.showMessageDialog(null, "Valor no valido", "Error", 1, null);
 		//JOptionPane.showConfirmDialog(null, "¿Desea Continar?", "", JOptionPane.YES_NO_CANCEL_OPTION, 3);
 		//JOptionPane.showMessageDialog(null, "Programa teminado", "Saliendo...", 1);
-		System.out.println(selection);
 		
 	}
 	
@@ -103,6 +111,10 @@ public class Convertidor {
 	
 	public static void salir() {
 		JOptionPane.showMessageDialog(null, "Programa teminado", "Saliendo...", 1);
+	}
+	
+	public static void continuar() {
+		JOptionPane.showConfirmDialog(null, "¿Desea Continar?", "", JOptionPane.YES_NO_CANCEL_OPTION, 3);
 	}
 	
 }
