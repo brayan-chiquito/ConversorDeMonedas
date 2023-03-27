@@ -101,24 +101,31 @@ public class Convertidor {
 							break;
 						case "De Pesos a Yen":
 							JOptionPane.showMessageDialog(null, valorAConvertir * ((ArrayList<Moneda>) monedas).get(3).getValorConversionLocal() + " Yenes", "respuesta", 1);
+							salida = continuar();
 							break;
 						case "De Pesos a Won Coreanos":
 							JOptionPane.showMessageDialog(null, valorAConvertir * ((ArrayList<Moneda>) monedas).get(4).getValorConversionLocal() + " Won coreanos", "respuesta", 1);
+							salida = continuar();
 							break;
 						case "De Dolar a Pesos":
 							JOptionPane.showMessageDialog(null, valorAConvertir * ((ArrayList<Moneda>) monedas).get(0).getValorConversionExterior() + " COP", "respuesta", 1);
+							salida = continuar();
 							break;
 						case "De Euro a Pesos":
 							JOptionPane.showMessageDialog(null, valorAConvertir * ((ArrayList<Moneda>) monedas).get(1).getValorConversionExterior() + " COP", "respuesta", 1);
+							salida = continuar();
 							break;
 						case "De Libras a Pesos":
 							JOptionPane.showMessageDialog(null, valorAConvertir * ((ArrayList<Moneda>) monedas).get(2).getValorConversionExterior() + " COP", "respuesta", 1);
+							salida = continuar();
 							break;
 						case "De Yen a Pesos":
 							JOptionPane.showMessageDialog(null, valorAConvertir * ((ArrayList<Moneda>) monedas).get(3).getValorConversionExterior() + " COP", "respuesta", 1);
+							salida = continuar();
 							break;
 						case "De Won coreanos a Pesos":
 							JOptionPane.showMessageDialog(null, valorAConvertir * ((ArrayList<Moneda>) monedas).get(4).getValorConversionExterior() + " COP", "respuesta", 1);
+							salida = continuar();
 							break;
 					}
 				}else {
